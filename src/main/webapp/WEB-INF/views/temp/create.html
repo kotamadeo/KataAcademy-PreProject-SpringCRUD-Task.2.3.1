@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление нового пользователя</title>
+</head>
+<body style="color: black">
+<form th:method="POST" th:action="@{/users}" th:object="${user}">
+    <div align="left">
+    <label style="color:navy" for="surname">Введите фамилию:</label>
+    <input style="color: rebeccapurple" stype="text" th:field="*{surname}" id="surname"/>
+    <div style="color:red" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}">Ошибка ввода фамилии!</div>
+    </div>
+
+    <div align="left">
+    <label style="color:navy" for="name">Введите имя:</label>
+    <input style="color: rebeccapurple" type="text" th:field="*{name}" id="name"/>
+    <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Ошибка ввода имени!</div>
+    </div>
+
+    <div align="left">
+    <label style="color:navy" for="sex">Введите пол:</label>
+    <input style="color: rebeccapurple" type="text" th:field="*{sex}" id="sex"/>
+    <div style="color:red" th:if="${#fields.hasErrors('sex')}" th:errors="*{sex}">Ошибка! Неверно указан пол!</div>
+    </div>
+
+    <div align="left">
+        <label style="color:navy" for="email">Введите email:</label>
+        <input style="color: rebeccapurple" type="text" th:field="*{email}" id="email"/>
+        <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Ошибка! Неверно указан email!</div>
+    </div>
+
+    <div align="left">
+        <label style="color:navy" for="age">Введите возраст:</label>
+        <input style="color: rebeccapurple" type="number" th:field="*{age}" id="age"/>
+        <div style="color:red" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Ошибка! Неверно указан возраст!</div>
+    </div>
+
+    <hr/>
+    <div align="left"><button type="submit" style="color: green">Добавить пользователя!</button></div>
+</form>
+</body>
+</html>
