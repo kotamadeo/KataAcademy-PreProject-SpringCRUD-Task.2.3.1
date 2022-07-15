@@ -36,8 +36,10 @@
     <a th:href="@{/users/{id}/update(id=${user.getId()})}"><input type="submit" value="Изменить данные?">
     </a>
     <form th:method="DELETE" th:action="@{/users/{id}(id=${user.getId()})}">
-        <hr/>
         <button type="submit">Удалить пользователя из базы данных?</button>
+    </form>
+    <form th:action="@{/users}">
+        <button type="submit" style="color: blue">Назад к списку пользователей</button>
     </form>
 </div>
 </body>

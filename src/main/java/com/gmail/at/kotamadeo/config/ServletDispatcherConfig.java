@@ -4,10 +4,12 @@ import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
+import javax.servlet.*;
+import javax.servlet.annotation.WebFilter;
+import java.io.IOException;
 
-public class ServletDispatcherConfig extends AbstractAnnotationConfigDispatcherServletInitializer {
+@WebFilter("/*")
+public class ServletDispatcherConfig extends AbstractAnnotationConfigDispatcherServletInitializer implements Filter {
     @Override
     protected Class<?>[] getRootConfigClasses() {
         return null;
@@ -26,14 +28,17 @@ public class ServletDispatcherConfig extends AbstractAnnotationConfigDispatcherS
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
         super.onStartup(servletContext);
-        CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter();
-        characterEncodingFilter.setEncoding("UTF-8");
-        characterEncodingFilter.setForceEncoding(true);
         registerHiddenFieldFilter(servletContext);
     }
 
     private void registerHiddenFieldFilter(ServletContext aContext) {
         aContext.addFilter("hiddenHttpMethodFilter", new HiddenHttpMethodFilter())
-                .addMappingForUrlPatterns(null, false, "/*");
+                .addMappingForUrlPatterns(null, true, "/*");
+    }
+
+    @Override
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        chain.doFilter(request, response);
     }
 }

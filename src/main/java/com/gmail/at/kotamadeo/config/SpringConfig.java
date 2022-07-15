@@ -30,7 +30,7 @@ public class SpringConfig implements WebMvcConfigurer {
         templateResolver.setPrefix("/WEB-INF/views/");
         templateResolver.setSuffix(".html");
         templateResolver.setTemplateMode("HTML5");
-        templateResolver.setCacheable(false);
+        templateResolver.setCacheable(true);
         templateResolver.setCharacterEncoding("UTF-8");
         return templateResolver;
     }

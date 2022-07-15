@@ -9,7 +9,8 @@
     <div align="center">
         <label style="color:navy" for="surname">Введите фамилию:</label>
         <input style="color: rebeccapurple" stype="text" th:field="*{surname}" id="surname"/>
-        <div style="color:red" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}">Ошибка ввода фамилии!</div>
+        <div style="color:red" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}">Ошибка ввода фамилии!
+        </div>
     </div>
 
     <div align="center">
@@ -27,17 +28,26 @@
     <div align="center">
         <label style="color:navy" for="email">Введите email:</label>
         <input style="color: rebeccapurple" type="text" th:field="*{email}" id="email"/>
-        <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Ошибка! Неверно указан email!</div>
+        <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Ошибка! Неверно указан
+            email!
+        </div>
     </div>
 
     <div align="center">
         <label style="color:navy" for="age">Введите возраст:</label>
         <input style="color: rebeccapurple" type="number" th:field="*{age}" id="age"/>
-        <div style="color:red" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Ошибка! Неверно указан возраст!</div>
+        <div style="color:red" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Ошибка! Неверно указан возраст!
+        </div>
     </div>
-
     <hr/>
-    <div align="center"><button type="submit" style="color: green">Подтвердить изменения?</button></div>
+    <div align="center">
+        <button type="submit" style="color: green">Подтвердить изменения?</button>
+    </div>
+</form>
+<form th:action="@{/users}">
+    <div align="center">
+        <button type="submit" style="color:blue">Назад к списку пользователей</button>
+    </div>
 </form>
 </body>
 </html>

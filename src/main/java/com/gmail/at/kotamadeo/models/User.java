@@ -7,32 +7,32 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "Пользователи")
+@Table(name = "users")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "Фамилия")
+    @Column
     @NotNull(message = "Фамилия не может быть пустой!")
     @Size(min = 3, max = 30, message = "Фамилия должна содержать от 3 до 30 символов!")
     private String surname;
 
-    @Column(name = "Имя")
+    @Column
     @NotNull(message = "Имя не может быть пустым!")
     @Size(min = 3, max = 30, message = "Имя должно содержать от 3 до 30 символов!")
     private String name;
 
-    @Column(name = "Пол")
+    @Column
     @NotNull(message = "Пол не может быть пустым!")
     @Size(min = 1, max = 6, message = "обозначение пола должно быть 1 символом!")
     private String sex;
 
-    @Column(name = "Email")
+    @Column
     @Email(message = "Email должен быть валидным!")
     private String email;
 
-    @Column(name = "Возраст")
+    @Column
     @Min(message = "Возраст не может быть отрицательным!", value = 0)
     @NotNull(message = "Возраст не может быть пустым!")
     private byte age;
