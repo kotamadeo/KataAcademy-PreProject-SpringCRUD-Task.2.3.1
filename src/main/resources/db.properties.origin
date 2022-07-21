@@ -1,0 +1,11 @@
+#MySQL properties
+db.driver=
+db.url=
+db.username=
+db.password=
+db.entity.package =
+
+#Hibernate properties
+hibernate.show_sql=
+hibernate.hbm2ddl.auto=
+hibernate.dialect=

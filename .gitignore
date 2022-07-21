@@ -1,5 +1,8 @@
 ### Игнорирование folder ###
 
+### Игнорирование .properties ###
+*.properties
+
 ### Игнорирование системных файлов | System files ignore ###
 Thumbs.db*
 .DS_Store*
